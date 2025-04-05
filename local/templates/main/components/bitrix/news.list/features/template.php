@@ -13,9 +13,9 @@
 $this->setFrameMode(true);
 ?>
 <div class="news-list">
-    <?if($arParams["DISPLAY_TOP_PAGER"]):?>
-        <?=$arResult["NAV_STRING"]?><br />
-    <?endif;?>
+    <?php if($arParams["DISPLAY_TOP_PAGER"]):?>
+        <?=$arResult["NAV_STRING"]?><br/>
+    <?php endif; ?>
 
     <?php if (!empty($arResult["ITEMS"])): ?>
         <div id="barba-wrapper">
