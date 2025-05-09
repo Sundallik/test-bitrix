@@ -75,7 +75,6 @@ function prepareMultilineText($text) {
     $text = trim($text);
     if (empty($text)) return '';
 
-    // Обработка маркированных списков
     if (strpos($text, '•') !== false) {
         return array_map('trim', explode('•', $text));
     }
@@ -86,7 +85,6 @@ function prepareSalary($value, $arProps) {
     $value = trim($value);
     if ($value == '-' || $value == 'по договоренности') return '';
 
-    // Обработка "от 100 000 руб."
     if (preg_match('/^(от|до)\s(.+)/ui', $value, $matches)) {
         $type = mb_strtolower($matches[1]);
         $amount = $matches[2];

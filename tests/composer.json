@@ -1,6 +1,7 @@
 {
     "require": {
-        "phpunit/phpunit": "^11.4"
+        "phpunit/phpunit": "^11.4",
+      "ext-mbstring": "*"
     },
     "autoload": {
         "psr-4": {

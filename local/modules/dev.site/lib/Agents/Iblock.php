@@ -18,7 +18,6 @@ class Iblock
             return "Iblock::cleanUpOldLogs();";
         }
 
-        // Получаем ID элементов, которые нужно оставить (10 самых новых)
         $elementsToKeep = [];
         $rs = CIBlockElement::GetList(
             ['ACTIVE_FROM' => 'DESC'],
@@ -36,7 +35,6 @@ class Iblock
             return "Iblock::cleanUpOldLogs();";
         }
 
-        // Удаляем все элементы, кроме тех, что нужно оставить
         $rsAll = CIBlockElement::GetList(
             ['ID' => 'ASC'],
             [

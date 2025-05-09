@@ -6,8 +6,7 @@ if (!Loader::includeModule('dev.site')) {
 }
 
 Loader::registerAutoLoadClasses('dev.site', [
-    'DevSite\lib\Handlers\IBlock' => 'lib/Handlers/IBlock.php',
-    'DevSite\lib\Agents\IBlock' => 'lib/Agents/IBlock.php',
+    'DevSite\lib\Handlers\IBlock' => 'lib/Handlers/IBlock.php'
 ]);
 
 AddEventHandler(
