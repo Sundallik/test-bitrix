@@ -39,7 +39,6 @@ class NewsListExtComponent extends CBitrixComponent
             $this->filter['IBLOCK_TYPE'] = $this->arParams['IBLOCK_TYPE'];
         }
 
-        // Добавляем пользовательский фильтр
         $this->filter = array_merge($this->filter, $this->arParams['FILTER']);
     }
 

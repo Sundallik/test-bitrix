@@ -82,7 +82,7 @@ $APPLICATION->SetTitle("Главная");
 		"WEB_FORM_ID" => 1
 	)
 );?><br>
-<?$APPLICATION->IncludeComponent(
+ <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"news",
 	Array(
@@ -153,6 +153,24 @@ $APPLICATION->SetTitle("Главная");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N"
+	)
+);?><br>
+<?$APPLICATION->IncludeComponent(
+	"custom:news.list.ext",
+	"",
+	Array(
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "A",
+		"CHECK_PERMISSIONS" => "Y",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"FILTER" => array(""),
+		"IBLOCK_ID" => "",
+		"IBLOCK_TYPE" => "content",
+		"SORT_BY" => "ACTIVE_FROM",
+		"SORT_ORDER" => "DESC"
 	)
 );?><?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
