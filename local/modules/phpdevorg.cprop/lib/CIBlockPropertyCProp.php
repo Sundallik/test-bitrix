@@ -220,40 +220,26 @@ class CIBlockPropertyCProp
     private static function showHtmlEditor($code, $title, $arValue, $strHTMLControlName)
     {
         $result = '';
-
         $v = !empty($arValue['VALUE'][$code]) ? $arValue['VALUE'][$code] : '';
-
-        $multiple = isset($strHTMLControlName['MULTIPLE']) && $strHTMLControlName['MULTIPLE'] === 'Y';
-
-        if($multiple) {
-            $name = preg_replace("/[\[\]]/i", "_", $strHTMLControlName['VALUE']."[".$code."]");
-        } else {
-            $name = $strHTMLControlName['VALUE']."[".$code."]";
-        }
+        $fieldName = $strHTMLControlName['VALUE'].'['.$code.']';
 
         ob_start();
 
-        CFileMan::AddHTMLEditorFrame(
-            $name,
-            $v,
-            $name."_TYPE",
-            strlen($v) ? "html" : "text",
-            array(
-                'height' => 300,
-            )
-        );
-
-        if($multiple) {
-            echo '<input type="hidden" name="'.$strHTMLControlName['VALUE']."[".$code."]".'" >';
-        }
+        $editor = new \CHTMLEditor;
+        $editor->Show(array(
+            'name' => $fieldName,
+            'inputName' => $fieldName,
+            'content' => $v,
+            'height' => '300px',
+        ));
 
         $html = ob_get_contents();
         ob_end_clean();
 
         $result .= '<tr>
-                    <td align="right" valign="top">'.$title.': </td>
-                    <td>'.$html.'</td>
-                </tr>';
+                <td align="right" valign="top">'.$title.': </td>
+                <td>'.$html.'</td>
+            </tr>';
 
         return $result;
     }
